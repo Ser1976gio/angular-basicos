@@ -1,0 +1,25 @@
+<p>listado de Heroes</p>
+
+<!-- solo aparece si se ha borrado un heroe -->
+<div *ngIf=" heroe_borrado !== ''; else noBorrado">
+    <h3>Heroe Borrado:<small> {{ heroe_borrado }}</small></h3>
+</div>
+
+<ng-template #noBorrado>
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+
+<!-- Si la lista es vacia el boton no aparece -->
+<button *ngIf="heroes.length >= 0" (click) ="BorrarHeroe()">
+    Borrar...
+</button>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index"> 
+        {{ i + 1 }} - {{ heroe }} 
+    </li>
+</ul>
+
+
+
